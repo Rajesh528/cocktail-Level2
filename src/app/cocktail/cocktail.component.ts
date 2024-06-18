@@ -17,7 +17,7 @@ import { Cocktail } from '../cocktail';
   styleUrl: './cocktail.component.scss',
 })
 export class CocktailComponent implements OnInit {
-  itemId: string | null;
+  itemId: string;
   cocktail: Cocktail;
   constructor(
     private route: ActivatedRoute,
