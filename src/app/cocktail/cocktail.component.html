@@ -2,13 +2,13 @@
   <div class="back-button"><a [routerLink]="['/cocktails']"> ← Back</a></div>
   <div class="recipe-card">
     <div class="image">
-      <img [src]="cocktail?.imageUrl" [alt]="cocktail?.name" />
+      <img [src]="cocktail.imageUrl" [alt]="cocktail.name" />
     </div>
     <div class="details">
       <h1>
-        {{ cocktail?.name }}
+        {{ cocktail.name }}
         <span class="star">
-          <ng-container *ngIf="cocktail?.isFavorite; else noStar">
+          <ng-container *ngIf="cocktail.isFavorite; else noStar">
             <span (click)="updateFavorite(cocktail.id, false)"> ⭐</span></ng-container
           >
           <ng-template #noStar>
@@ -20,16 +20,16 @@
       <p>
         <strong>Type:</strong>
         <span class="type-tag">{{
-          cocktail?.isAlcoholic ? "Alcoholic" : "Non-Alcoholic"
+          cocktail.isAlcoholic ? "Alcoholic" : "Non-Alcoholic"
         }}</span>
       </p>
       <p><strong>Ingredients:</strong></p>
       <ul>
-        <li *ngFor="let ingredient of cocktail?.ingredients">
+        <li *ngFor="let ingredient of cocktail.ingredients">
           {{ ingredient }}
         </li>
       </ul>
-      <p><strong>Instructions:</strong> {{ cocktail?.instructions }}</p>
+      <p><strong>Instructions:</strong> {{ cocktail.instructions }}</p>
     </div>
   </div>
 </div>

@@ -1,11 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import {
-  ActivatedRoute,
-  ParamMap,
-  RouterModule,
-} from '@angular/router';
+import { ActivatedRoute, ParamMap, RouterModule } from '@angular/router';
 import { DataService } from '../data.service';
 import { Cocktail } from '../cocktail';
 
@@ -17,7 +13,7 @@ import { Cocktail } from '../cocktail';
   styleUrl: './cocktail.component.scss',
 })
 export class CocktailComponent implements OnInit {
-  itemId: string;
+  itemId: string | null;
   cocktail: Cocktail;
   constructor(
     private route: ActivatedRoute,
@@ -29,11 +25,14 @@ export class CocktailComponent implements OnInit {
       this.itemId = params.get('id');
       // Use this.itemId as needed in  component to load cocktail details
     });
-    this.cocktailService
-      .getCocktailById(this.itemId)
-      .subscribe((res: Cocktail) => {
-        this.cocktail = res;
-      });
+
+    if (this.itemId) {
+      this.cocktailService
+        .getCocktailById(this.itemId)
+        .subscribe((res: Cocktail) => {
+          this.cocktail = res;
+        });
+    }
   }
   // add / or remove as favorite
   updateFavorite(id: string, flag: boolean) {
