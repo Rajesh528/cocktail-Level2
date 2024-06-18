@@ -7,12 +7,12 @@ import { BehaviorSubject, Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class DataService {
-  private dataSubject = new BehaviorSubject<any[]>([]);
+  private dataSubject = new BehaviorSubject<Cocktail[]>([]);
   constructor(public http: HttpClient) {
     this.getCocktails();
   }
   private getCocktails(): void {
-    this.http.get<any[]>('/cockails').subscribe(
+    this.http.get<Cocktail[]>('/cockails').subscribe(
       (data) => {
         this.dataSubject.next(data);
       },
@@ -22,10 +22,10 @@ export class DataService {
     );
   }
 
-  getData(): Observable<any[]> {
+  getData(): Observable<Cocktail[]> {
     return this.dataSubject.asObservable();
   }
-  getCocktailById(id:any) {
+  getCocktailById(id:string) {
     return this.http.get<Cocktail>(`/cockails/${id}`);
   }
   updateCocktail(updatedCocktail:Cocktail){

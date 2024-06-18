@@ -11,7 +11,7 @@ export class CocktailServiceService {
   getCocktails() {
     return this.http.get('/cockails');
   }
-  getCocktailById(id:any) {
+  getCocktailById(id:string) {
     return this.http.get(`/cockails/${id}`);
   }
   

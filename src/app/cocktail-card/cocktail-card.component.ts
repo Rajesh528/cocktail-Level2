@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input, OnInit } from '@angular/core';
-import { ActivatedRoute, RouterModule } from '@angular/router';
+import { Component, Input } from '@angular/core';
+import { RouterModule } from '@angular/router';
+import { Cocktail } from '../cocktail';
 
 @Component({
   selector: 'app-cocktail-card',
@@ -10,6 +11,6 @@ import { ActivatedRoute, RouterModule } from '@angular/router';
   styleUrl: './cocktail-card.component.scss',
 })
 export class CocktailCardComponent {
-  @Input() cocktail: any;
+  @Input() cocktail: Cocktail;
   //taking coctail info from parent and showing on the card
 }
