@@ -1,0 +1,10 @@
+
+    <div class="container">
+        <div class="filters">
+            <label for="cocktail-name">Cocktail Name:</label>
+            <input type="text" id="cocktail-name" name="cocktail-name" [(ngModel)]="searchTerm"  (input)="onFilterChange()">
+          </div>
+        <div class="cocktail-menu">
+            <app-cocktail-card *ngFor="let cocktail of filteredCocktails" [cocktail]="cocktail"></app-cocktail-card>
+        </div>
+    </div>

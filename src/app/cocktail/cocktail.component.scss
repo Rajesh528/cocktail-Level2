@@ -1,0 +1,80 @@
+
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: #ffffff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.back-button {
+  padding: 10px;
+  font-size: 18px;
+  color: #007BFF;
+  cursor: pointer;
+}
+
+.recipe-card {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 20px;
+}
+
+.image {
+  flex: 0 0 30%;
+  padding-right: 20px;
+}
+
+.image img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.details {
+  flex: 1;
+  text-align: left;
+}
+
+.details h1 {
+  margin: 0;
+  font-size: 24px;
+}
+
+.details .star {
+  font-size: 24px;
+  color: gold;
+}
+
+.details .type-tag {
+  background-color: #007BFF;
+  color: white;
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 14px;
+}
+
+.details ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.details ul li {
+  font-size: 16px;
+  margin: 5px 0;
+}
+
+.details p {
+  font-size: 16px;
+}
+
+.star {
+  display: inline-block;
+  cursor: pointer;
+  line-height: 25px;
+  text-align: center;
+  width: 25px;
+}

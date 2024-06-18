@@ -1,6 +1,9 @@
-import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
-import { AppModule } from './app/app.module';
+import { bootstrapApplication } from '@angular/platform-browser';
+import { appConfig } from './app/app.config';
+import { AppComponent } from './app/app.component';
+import { setupWorker } from 'msw/browser';
 import { http, HttpResponse } from 'msw';
+
 const handlers = [
   http.get('/cockails', ({ request, params, cookies }) => {
     return HttpResponse.json([
@@ -1045,5 +1048,7 @@ const handlers = [
 
 ];
 
-platformBrowserDynamic().bootstrapModule(AppModule)
-  .catch(err => console.error(err));
+setupWorker(...handlers).start()
+  .then(() => bootstrapApplication(AppComponent, appConfig))
+  .catch((err) => console.error(err));
+

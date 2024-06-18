@@ -1,23 +1,11 @@
 import { Component } from '@angular/core';
-import { CocktailServiceService } from './cocktail-service.service';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  standalone: true,
+  imports: [ RouterModule ],
+  templateUrl: 'app.component.html',
 })
 export class AppComponent {
-  title = 'project';
-  public cocktails: any;
-  public filteredCocktails:any;
-  searchTerm :any;
-  constructor(public data:CocktailServiceService){
-
-  }
-  ngOnInit(): void {
-    this.data.getCocktails().subscribe((res:any)=>{
-      this.cocktails = res;
-      this.filteredCocktails = res;
-      });
-      }
 }

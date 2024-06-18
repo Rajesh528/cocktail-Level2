@@ -3,17 +3,11 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "project": {
+    "hogwarts-theater": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
-          "standalone": false
-        },
-        "@schematics/angular:directive": {
-          "standalone": false
-        },
-        "@schematics/angular:pipe": {
-          "standalone": false
+          "style": "scss"
         }
       },
       "root": "",
@@ -23,19 +17,22 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/project",
+            "outputPath": "dist/hogwarts-theater",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
               "zone.js"
             ],
             "tsConfig": "tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              "src/mockServiceWorker.js"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.scss",
+              "node_modules/mini.css/dist/mini-nord.min.css"
             ],
             "scripts": []
           },
@@ -67,10 +64,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "project:build:production"
+              "buildTarget": "hogwarts-theater:build:production"
             },
             "development": {
-              "buildTarget": "project:build:development"
+              "buildTarget": "hogwarts-theater:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -78,7 +75,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "project:build"
+            "buildTarget": "hogwarts-theater:build"
           }
         },
         "test": {
@@ -89,12 +86,13 @@
               "zone.js/testing"
             ],
             "tsConfig": "tsconfig.spec.json",
+            "inlineStyleLanguage": "scss",
             "assets": [
               "src/favicon.ico",
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.scss"
             ],
             "scripts": []
           }
@@ -103,6 +101,6 @@
     }
   },
   "cli": {
-    "analytics": "a4daae95-8dbb-4afc-bae8-009e09e32f8d"
+    "analytics": "5175b7bc-9305-44e0-a3a7-0fb68f29a48c"
   }
 }
