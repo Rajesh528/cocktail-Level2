@@ -5,7 +5,7 @@
     <div class="cocktail-header">
       <div>
         <div class="cocktail-name">
-          <a [routerLink]="['/cocktail', cocktail.id]"> {{ cocktail.name }}</a>
+          <a [routerLink]="['/cocktailDetails', cocktail.id]"> {{ cocktail.name }}</a>
         </div>
         <div class="cocktail-type">
           {{ cocktail.isAlcoholic ? "Alcoholic" : "Non-Alcoholic" }}

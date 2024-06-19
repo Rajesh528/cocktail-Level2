@@ -4,6 +4,6 @@ import { CocktailComponent } from './cocktail/cocktail.component';
 
 export const routes: Routes = [
     {path:"cocktails", component:MenuComponent},
-    {path:"cocktail/:id", component:CocktailComponent},
+    {path:"cocktailDetails/:id", component:CocktailComponent},
     {path:"",redirectTo:"cocktails",pathMatch:"full"}
 ];
