@@ -47,13 +47,13 @@
     color: #666;
   }
   
-  .wishlist-icon {
+  .icon-star {
     font-size: 1.5em;
     cursor: pointer;
     color: #ffcc00;
   }
   
-  .wishlist-icon.favorited {
+  .icon-star.favorited {
     color: gold;
   }
   
@@ -62,4 +62,3 @@
       flex: 1 1 100%;
     }
   }
-  

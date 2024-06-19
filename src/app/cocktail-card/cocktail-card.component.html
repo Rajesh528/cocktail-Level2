@@ -11,7 +11,7 @@
           {{ cocktail.isAlcoholic ? "Alcoholic" : "Non-Alcoholic" }}
         </div>
       </div>
-      <div class="wishlist-icon" [class.favorited]="cocktail.isFavorite">
+      <div class="icon-star" [class.favorited]="cocktail.isFavorite" id="star-{{cocktail.id}}">
         <ng-container *ngIf="cocktail?.isFavorite; else noStar">⭐</ng-container>
         <ng-template #noStar>☆</ng-template>
       </div>
