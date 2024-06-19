@@ -1,29 +1,34 @@
-
 <div class="cocktail-item">
   <img [src]="cocktail.imageUrl" [alt]="cocktail.name" class="cocktail-image" />
   <div class="cocktail-content">
     <div class="cocktail-header">
       <div>
         <div class="cocktail-name">
-          <a [routerLink]="['/cocktailDetails', cocktail.id]"> {{ cocktail.name }}</a>
+          <a [routerLink]="['/cocktailDetails', cocktail.id]">
+            {{ cocktail.name }}</a
+          >
         </div>
         <div class="cocktail-type">
           {{ cocktail.isAlcoholic ? "Alcoholic" : "Non-Alcoholic" }}
         </div>
       </div>
-      <div class="icon-star" [class.favorited]="cocktail.isFavorite" id="star-{{cocktail.id}}">
-        <ng-container *ngIf="cocktail?.isFavorite; else noStar" >
-          <span (click)="updateFavorite(cocktail.id, false)"> ⭐</span></ng-container>
-        <ng-template #noStar> <span (click)="updateFavorite(cocktail.id, true)">☆</span></ng-template>
+      <div
+        class="icon-star"
+        [class.favorited]="cocktail.isFavorite"
+        id="star-{{ cocktail.id }}"
+      >
+        <ng-container *ngIf="cocktail?.isFavorite; else noStar">
+          ⭐</ng-container
+        >
+        <ng-template #noStar> ☆</ng-template>
       </div>
     </div>
     <div class="cocktail-description">
-        <ul>
-            <li *ngFor="let ingredient of cocktail?.ingredients">
-              {{ ingredient }}
-            </li>
-          </ul>
+      <ul>
+        <li *ngFor="let ingredient of cocktail?.ingredients">
+          {{ ingredient }}
+        </li>
+      </ul>
     </div>
   </div>
 </div>
-
