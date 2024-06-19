@@ -26,7 +26,10 @@ export class DataService {
     return this.dataSubject.asObservable();
   }
   getCocktailById(id:string) {
-    return this.http.get<Cocktail>(`/cockails/${id}`);
+    const currentValue = this.dataSubject.getValue();
+    const updatedIndex = currentValue.findIndex(item => item.id === id);
+    console.log(currentValue[updatedIndex]);
+    return currentValue[updatedIndex]
   }
   updateCocktail(updatedCocktail:Cocktail){
     const currentValue = this.dataSubject.getValue();
@@ -34,7 +37,13 @@ export class DataService {
     if (updatedIndex !== -1) {
       const updatedData = [...currentValue];
       updatedData[updatedIndex] = { ...updatedCocktail };
-      this.dataSubject.next(updatedData);
+      this.dataSubject.next(updatedData)
+      this.updateData(updatedData);
     }
+
+ 
+  }
+  updateData(updatedData: any): Observable<any> {
+    return this.http.put<any>('/cockails', updatedData);
   }
 }

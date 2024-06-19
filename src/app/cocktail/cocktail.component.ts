@@ -27,11 +27,8 @@ export class CocktailComponent implements OnInit {
     });
 
     if (this.itemId) {
-      this.cocktailService
-        .getCocktailById(this.itemId)
-        .subscribe((res: Cocktail) => {
-          this.cocktail = res;
-        });
+      this.cocktail =  this.cocktailService
+        .getCocktailById(this.itemId);
     }
   }
   // add / or remove as favorite
