@@ -12,8 +12,9 @@
         </div>
       </div>
       <div class="icon-star" [class.favorited]="cocktail.isFavorite" id="star-{{cocktail.id}}">
-        <ng-container *ngIf="cocktail?.isFavorite; else noStar">⭐</ng-container>
-        <ng-template #noStar>☆</ng-template>
+        <ng-container *ngIf="cocktail?.isFavorite; else noStar" >
+          <span (click)="updateFavorite(cocktail.id, false)"> ⭐</span></ng-container>
+        <ng-template #noStar> <span (click)="updateFavorite(cocktail.id, true)">☆</span></ng-template>
       </div>
     </div>
     <div class="cocktail-description">
