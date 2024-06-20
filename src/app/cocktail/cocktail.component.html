@@ -9,10 +9,10 @@
         {{ cocktail.name }}
         <span class="star">
           <ng-container *ngIf="cocktail.isFavorite; else noStar">
-            <span (click)="updateFavorite(cocktail.id, false)"> ⭐</span></ng-container
+            <span (click)="updateFavorite(false)"> ⭐</span></ng-container
           >
           <ng-template #noStar>
-            <span (click)="updateFavorite(cocktail.id, true)"> ☆</span>
+            <span (click)="updateFavorite(true)"> ☆</span>
           </ng-template></span
         >
       </h1>

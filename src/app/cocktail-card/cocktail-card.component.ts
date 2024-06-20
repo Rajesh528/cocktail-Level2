@@ -12,10 +12,10 @@ import { DataService } from '../data.service';
   styleUrl: './cocktail-card.component.scss',
 })
 export class CocktailCardComponent {
-  constructor(public cocktailService : DataService){}
+  constructor(public cocktailService: DataService) {}
   @Input() cocktail: Cocktail;
   //taking coctail info from parent and showing on the card
-  updateFavorite(id: string, flag: boolean) {
+  updateFavorite(flag: boolean) {
     this.cocktail.isFavorite = flag;
     this.cocktailService.updateCocktail(this.cocktail);
   }

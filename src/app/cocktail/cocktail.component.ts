@@ -32,7 +32,7 @@ export class CocktailComponent implements OnInit {
     }
   }
   // add / or remove as favorite
-  updateFavorite(id: string, flag: boolean) {
+  updateFavorite( flag: boolean) {
     this.cocktail.isFavorite = flag;
     this.cocktailService.updateCocktail(this.cocktail);
   }
